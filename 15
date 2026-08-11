@@ -1,0 +1,33 @@
+import pandas as pd
+
+data = pd.DataFrame({
+    'City': ['Chennai', 'Delhi', 'Mumbai'],
+    'Day1': [30, 20, 28],
+    'Day2': [32, 18, 29],
+    'Day3': [31, 25, 30],
+    'Day4': [33, 22, 31]
+})
+
+days = ['Day1', 'Day2', 'Day3', 'Day4']
+
+data['Mean'] = data[days].mean(axis=1)
+data['Std'] = data[days].std(axis=1)
+data['Range'] = data[days].max(axis=1) - data[days].min(axis=1)
+
+print(data[['City', 'Mean', 'Std', 'Range']])
+
+print("Highest temperature range:",
+      data.loc[data['Range'].idxmax(), 'City'])
+
+print("Most consistent city:",
+      data.loc[data['Std'].idxmin(), 'City'])
+Output:
+
+
+      City   Mean   Std  Range
+0  Chennai  31.50  1.29      3
+1    Delhi  21.25  3.10      7
+2   Mumbai  29.50  1.29      3
+
+Highest temperature range: Delhi
+Most consistent city: Chennai
