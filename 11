@@ -1,0 +1,50 @@
+import matplotlib.pyplot as plt
+
+months = ['Jan', 'Feb', 'Mar', 'Apr', 'May']
+sales = [100, 150, 130, 180, 220]
+
+plt.plot(months, sales, marker='o')
+plt.xlabel("Month")
+plt.ylabel("Sales")
+plt.title("Product Sales")
+plt.show()
+Output:
+
+
+Line plot is displayed.
+
+Highest sales = 220
+Month = May
+import matplotlib.pyplot as plt
+
+months = [1, 2, 3, 4, 5]
+sales = [100, 150, 130, 180, 220]
+
+plt.scatter(months, sales)
+plt.xlabel("Month")
+plt.ylabel("Sales")
+plt.title("Monthly Sales")
+plt.show()
+Output:
+
+
+Scatter plot is displayed showing
+Month versus Sales.
+
+import matplotlib.pyplot as plt
+
+months = ['Jan', 'Feb', 'Mar', 'Apr', 'May']
+sales = [100, 150, 130, 180, 220]
+
+plt.bar(months, sales)
+plt.xlabel("Month")
+plt.ylabel("Sales")
+plt.title("Monthly Sales")
+plt.show()
+Output:
+
+
+Bar plot is displayed.
+
+Highest sales = 220
+Month = May
