@@ -15,3 +15,23 @@ Bar graph is displayed.
 
 Highest sales = 18000
 Month = May
+import matplotlib.pyplot as plt
+
+months = ['Jan', 'Feb', 'Mar', 'Apr', 'May']
+sales = [10000, 12000, 15000, 13000, 18000]
+
+plt.plot(months, sales, marker='o')
+plt.xlabel("Month")
+plt.ylabel("Sales")
+plt.title("Monthly Sales")
+plt.show()
+Output:
+
+
+Line graph is displayed.
+
+Jan → 10000
+Feb → 12000
+Mar → 15000
+Apr → 13000
+May → 18000
