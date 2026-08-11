@@ -1,0 +1,35 @@
+import matplotlib.pyplot as plt
+
+months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
+temperature = [24, 26, 29, 32, 34, 33]
+
+plt.plot(months, temperature, marker='o')
+plt.xlabel("Month")
+plt.ylabel("Temperature (°C)")
+plt.title("Monthly Temperature")
+plt.show()
+Output:
+
+
+Line plot is displayed.
+
+Highest temperature = 34°C
+Month = May
+
+import matplotlib.pyplot as plt
+
+months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun']
+rainfall = [20, 15, 30, 50, 80, 120]
+
+plt.scatter(months, rainfall)
+plt.xlabel("Month")
+plt.ylabel("Rainfall (mm)")
+plt.title("Monthly Rainfall")
+plt.show()
+Output:
+
+
+Scatter plot is displayed.
+
+Highest rainfall = 120 mm
+Month = June
