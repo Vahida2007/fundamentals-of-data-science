@@ -1,0 +1,21 @@
+import pandas as pd
+
+data = pd.read_csv("stock_data.csv")
+
+prices = data['Close']
+
+print("Mean:", prices.mean())
+print("Variance:", prices.var())
+print("Standard Deviation:", prices.std())
+print("Minimum:", prices.min())
+print("Maximum:", prices.max())
+print("Range:", prices.max() - prices.min())
+Output:
+
+
+Mean: 152.40
+Variance: 25.84
+Standard Deviation: 5.08
+Minimum: 145
+Maximum: 160
+Range: 15
