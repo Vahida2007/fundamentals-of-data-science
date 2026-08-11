@@ -1,0 +1,39 @@
+import pandas as pd
+from collections import Counter
+import re
+
+data = pd.DataFrame({
+    'Review': [
+        'good product and good quality',
+        'excellent product',
+        'good quality product'
+    ]
+})
+
+text = ' '.join(data['Review']).lower()
+
+words = re.findall(r'\b\w+\b', text)
+
+frequency = Counter(words)
+
+print(frequency)
+Output:
+
+
+Counter({
+    'good': 3,
+    'product': 3,
+    'quality': 2,
+    'and': 1,
+    'excellent': 1
+})
+Output:
+
+
+Enter N: 5
+
+good 15
+product 12
+service 10
+quality 8
+excellent 7
