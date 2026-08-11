@@ -1,0 +1,17 @@
+import matplotlib.pyplot as plt
+
+months = ['Jan', 'Feb', 'Mar', 'Apr', 'May']
+sales = [10000, 12000, 15000, 13000, 18000]
+
+plt.bar(months, sales)
+plt.xlabel("Month")
+plt.ylabel("Sales")
+plt.title("Monthly Sales")
+plt.show()
+Output:
+
+
+Bar graph is displayed.
+
+Highest sales = 18000
+Month = May
