@@ -1,0 +1,24 @@
+from collections import Counter
+import re
+
+with open("sample_text.txt", "r") as file:
+    text = file.read().lower()
+
+words = re.findall(r'\b\w+\b', text)
+
+frequency = Counter(words)
+
+print(frequency)
+If sample_text.txt contains:
+
+
+Python is easy. Python is powerful.
+Output:
+
+
+Counter({
+    'python': 2,
+    'is': 2,
+    'easy': 1,
+    'powerful': 1
+})
