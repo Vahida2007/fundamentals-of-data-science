@@ -1,0 +1,27 @@
+import pandas as pd
+from scipy import stats
+
+df = pd.read_csv("customer_reviews.csv")
+
+ratings = df['Rating']
+
+mean = ratings.mean()
+std = ratings.std()
+n = len(ratings)
+
+sem = std / (n ** 0.5)
+
+ci = stats.t.interval(
+    0.95,
+    df=n-1,
+    loc=mean,
+    scale=sem
+)
+
+print("Average Rating:", mean)
+print("95% Confidence Interval:", ci)
+Output:
+
+
+Average Rating: 4.12
+95% Confidence Interval: (3.98, 4.26)
