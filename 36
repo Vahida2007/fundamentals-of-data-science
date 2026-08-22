@@ -1,0 +1,38 @@
+import numpy as np
+from sklearn.linear_model import LogisticRegression
+
+X = np.array([
+    [100, 12],
+    [120, 24],
+    [150, 36],
+    [80, 6],
+    [90, 8],
+    [200, 48],
+    [180, 36],
+    [70, 5],
+    [60, 4],
+    [220, 60]
+])
+
+y = np.array([1, 0, 0, 1, 1, 0, 0, 1, 1, 0])
+
+model = LogisticRegression()
+model.fit(X, y)
+
+usage = float(input("Enter usage minutes: "))
+duration = float(input("Enter contract duration: "))
+
+prediction = model.predict([[usage, duration]])
+
+if prediction[0] == 1:
+    print("Customer is likely to churn.")
+else:
+    print("Customer is not likely to churn.")
+Sample Output:
+
+
+Enter usage minutes: 80
+Enter contract duration: 6
+
+Customer is likely to churn.
+37. K-Means – Custo
