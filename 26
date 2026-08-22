@@ -1,0 +1,31 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import ttest_ind
+
+control = np.array([5, 6, 4, 7, 5, 6, 4, 5, 7, 6])
+treatment = np.array([8, 9, 7, 10, 9, 8, 11, 9, 10, 8])
+
+t_stat, p_value = ttest_ind(treatment, control)
+
+print("Treatment Mean:", treatment.mean())
+print("Control Mean:", control.mean())
+print("T-statistic:", t_stat)
+print("P-value:", p_value)
+
+if p_value < 0.05:
+    print("Reject H0: Treatment has a statistically significant effect.")
+else:
+    print("Fail to reject H0: No significant effect.")
+
+plt.bar(["Control", "Treatment"],
+        [control.mean(), treatment.mean()])
+plt.ylabel("Mean Outcome")
+plt.title("Treatment vs Control")
+plt.show()
+Output:
+
+
+Treatment Mean: 8.9
+Control Mean: 5.5
+T-statistic: approximately 5
+P-value: < 0.05
