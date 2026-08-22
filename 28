@@ -1,0 +1,45 @@
+import pandas as pd
+from sklearn.tree import DecisionTreeRegressor, export_text
+
+data = {
+    'Mileage': [20000, 30000, 40000, 50000, 60000, 70000,
+                80000, 90000, 100000, 110000],
+    'Age': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    'Engine': [2.0, 2.0, 1.8, 1.8, 1.6, 1.6, 1.5, 1.5, 1.4, 1.4],
+    'Price': [1800000, 1700000, 1600000, 1500000, 1350000,
+              1200000, 1100000, 950000, 850000, 700000]
+}
+
+df = pd.DataFrame(data)
+
+X = df[['Mileage', 'Age', 'Engine']]
+y = df['Price']
+
+model = DecisionTreeRegressor(random_state=42)
+model.fit(X, y)
+
+mileage = float(input("Enter mileage: "))
+age = float(input("Enter age: "))
+engine = float(input("Enter engine size: "))
+
+new_car = [[mileage, age, engine]]
+
+prediction = model.predict(new_car)
+
+print("\nPredicted Car Price:", prediction[0])
+
+print("\nDecision Path:")
+print(export_text(model, feature_names=list(X.columns)))
+Sample Output:
+
+
+Enter mileage: 45000
+Enter age: 4
+Enter engine size: 1.8
+
+Predicted Car Price: approximately 1500000
+
+Decision Path:
+|--- Mileage <= ...
+|   |--- Age <= ...
+|   ...
