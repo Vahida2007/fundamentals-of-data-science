@@ -1,0 +1,40 @@
+import numpy as np
+from sklearn.neighbors import KNeighborsClassifier
+
+X = np.array([
+    [1, 1],
+    [2, 1],
+    [1, 2],
+    [2, 2],
+    [8, 8],
+    [9, 8],
+    [8, 9],
+    [9, 9]
+])
+
+y = np.array([0, 0, 0, 0, 1, 1, 1, 1])
+
+model = KNeighborsClassifier(n_neighbors=3)
+model.fit(X, y)
+
+f1 = float(input("Enter symptom feature 1: "))
+f2 = float(input("Enter symptom feature 2: "))
+k = int(input("Enter k: "))
+
+model = KNeighborsClassifier(n_neighbors=k)
+model.fit(X, y)
+
+prediction = model.predict([[f1, f2]])
+
+if prediction[0] == 1:
+    print("Patient has the medical condition.")
+else:
+    print("Patient does not have the medical condition.")
+Sample Output:
+
+
+Enter symptom feature 1: 8
+Enter symptom feature 2: 8
+Enter k: 3
+
+Patient has the medical condition.
