@@ -1,0 +1,40 @@
+import pandas as pd
+from sklearn.cluster import KMeans
+
+data = {
+    'CustomerID': ['C1','C2','C3','C4','C5','C6','C7','C8','C9'],
+    'Spending': [500, 700, 600, 3000, 3500, 3200, 7000, 7500, 8000],
+    'Visits': [3, 4, 3, 12, 14, 13, 25, 28, 30]
+}
+
+df = pd.DataFrame(data)
+
+X = df[['Spending', 'Visits']]
+
+model = KMeans(n_clusters=3, random_state=42, n_init=10)
+
+df['Cluster'] = model.fit_predict(X)
+
+print("Customer Segments:")
+print(df)
+Output:
+
+
+Customer Segments:
+
+  CustomerID  Spending  Visits  Cluster
+0         C1       500       3        0
+1         C2       700       4        0
+2         C3       600       3        0
+3         C4      3000      12        1
+4         C5      3500      14        1
+5         C6      3200      13        1
+6         C7      7000      25        2
+7         C8      7500      28        2
+8         C9      8000      30        2
+Interpretation:
+
+
+Cluster 0 → Low spending customers
+Cluster 1 → Medium spending customers
+Cluster 2 → High spending customers
