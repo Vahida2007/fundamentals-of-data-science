@@ -1,0 +1,56 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.cluster import KMeans
+
+data = {
+    'CustomerID': ['C1','C2','C3','C4','C5','C6',
+                   'C7','C8','C9','C10'],
+    'TotalSpent': [500, 700, 600, 3000, 3500,
+                   3200, 7000, 7500, 8000, 7200],
+    'ItemsPurchased': [2, 3, 2, 10, 12, 11,
+                       25, 28, 30, 26]
+}
+
+df = pd.DataFrame(data)
+
+X = df[['TotalSpent', 'ItemsPurchased']]
+
+model = KMeans(n_clusters=3, random_state=42, n_init=10)
+
+df['Cluster'] = model.fit_predict(X)
+
+print("Customer Segmentation:")
+print(df)
+
+plt.scatter(
+    df['TotalSpent'],
+    df['ItemsPurchased'],
+    c=df['Cluster']
+)
+
+plt.xlabel("Total Amount Spent")
+plt.ylabel("Number of Items Purchased")
+plt.title("E-Commerce Customer Clusters")
+plt.show()
+Output:
+
+
+Customer Segmentation:
+
+  CustomerID  TotalSpent  ItemsPurchased  Cluster
+0          C1         500               2        0
+1          C2         700               3        0
+2          C3         600               2        0
+3          C4        3000              10        1
+4          C5        3500              12        1
+5          C6        3200              11        1
+6          C7        7000              25        2
+7          C8        7500              28        2
+8          C9        8000              30        2
+9         C10        7200              26        2
+Interpretation:
+
+
+Cluster 0 → Low-value customers
+Cluster 1 → Medium-value customers
+Cluster 2 → High-value customers
